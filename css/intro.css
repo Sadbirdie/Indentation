@@ -19,7 +19,8 @@
     line-height: 120%;
 }
 
-.nav__list-item {
+.nav__list-item,
+.nav__list-item a {
     color: #02535f;
 }
 
