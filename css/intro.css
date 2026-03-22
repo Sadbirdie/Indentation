@@ -1,0 +1,39 @@
+.title {
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 120%;
+    margin-bottom: 50px;
+}
+
+.nav {
+    border-radius: 10px;
+    width: 1140px;
+    min-height: 215px;
+    padding: 35px 0 26px 45px;
+    background: #f1f1f1;
+}
+
+.nav__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 120%;
+}
+
+.nav__list-item {
+    color: #02535f;
+}
+
+.nav__list-item:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.section__title {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 120%;
+    margin-bottom: 35px;
+}
+
+.intro__text {
+    margin-bottom: 35px;
+}

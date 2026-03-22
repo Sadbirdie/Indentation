@@ -1,0 +1,28 @@
+.section-two__text:not(:last-child) {
+    margin-bottom: 35px;
+}
+
+.section-two__img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+
+.section-two__figure {
+    border: solid 1px;
+    width: 1080px;
+    min-height: 506px;
+    margin-bottom: 35px;
+}
+
+.section-two__img--figure {
+    margin-bottom: 0;
+}
+
+.section-two__text--figure {
+    text-align: center;
+    width: 1020px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #5e5e5e;
+}

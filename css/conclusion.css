@@ -1,0 +1,26 @@
+.conclusion {
+    border-radius: 10px;
+    width: 1140px;
+    min-height: 385px;
+    padding: 35px 45px;
+    background: #f1f1f1;
+}
+
+.conclusion__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 120%;
+    color: #000;
+}
+
+.conclusion__list {
+    padding-left: 0;
+}
+
+.conclusion__list-item {
+    list-style: none;
+}
+
+.conclusion__list-item:not(:last-child) {
+    margin-bottom: 16px;
+}

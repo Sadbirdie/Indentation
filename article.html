@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="assets/image/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="assets/fonts/Roboto-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Roboto-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Roboto-Black.woff2" as="font" type="font/woff2" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отступы в вёрстке: margin и padding</title>
+</head>
+
+<body class="body">
+    <article class="container">
+        <h1 class="title">Отступы в вёрстке: margin и padding</h1>
+
+        <p class="intro__text">
+            В этой статье я рассмотрю самые популярные "стандартные" решения для сохранения смысла и хорошей читаемости
+            вашего кода. Если точнее — речь пойдет об основных правилах организации отступов. Они сильно влияют на общую
+            функциональность кода и, если всё сделано верно, позволяют легко вносить изменения в любую его часть. При
+            этом другие части кода продолжат нормально работать.
+        </p>
+
+        <p class="intro__text">
+            Как это часто бывает, знание базовых принципов поможет проявить гибкость и выйти за их пределы. Эти знания
+            особенно важны для начинающих, но также будут полезным напоминанием и для более опытных верстальщиков. Итак,
+            поговорим о фундаментальных основах работы с отступами в вёрстке.
+        </p>
+
+        <nav class="nav">
+            <h2 class="nav__title">Содержание:</h2>
+            <ol class="nav__list">
+                <li class="nav__list-item"><a href="#one">Отступ задается от предыдущего элемента к следующему</a>
+                </li>
+                <li class="nav__list-item"><a href="#two">Отступ задается последнему возможному элементу в
+                        DOM-дереве</a></li>
+                <li class="nav__list-item"><a href="#three">Для последнего элемента группы отступ обнуляется</a></li>
+            </ol>
+        </nav>
+
+        <section id="one" class="section-one">
+            <h2 class="section__title">Отступ задается от предыдущего элемента к следующему: от первого ко второму,
+                сверху вниз, слева направо.
+            </h2>
+
+            <img class="section-one__img--1" src="assets/image/figma images/image 1-1.jpg"
+                alt="На изображении 4 блока с текстом и фотграфиями котов, отделенные друг от друга с помощью margin"
+                aria-hidden="true" width="560" height="415">
+
+            <div class="section-one__block-right">
+                <p class="section-one__text">
+                    <strong>ВАЖНО:</strong> <i>margin</i> всегда задают от предыдущего элемента к следующему.
+                </p>
+
+                <p class="section-one__text">
+                    Свойство <i>margin</i> необходимо только для того, чтобы отодвинуть своего соседа справа или снизу,
+                    поэтому
+                    используется <i>margin-right</i> и <i>margin-bottom</i>.
+                </p>
+
+                <p class="section-one__text">
+                    (!) Свойства <i>margin-left</i> и <i>margin-top</i> используются крайне редко.
+                </p>
+
+                <p class="section-one__text">
+                    Для <i>padding</i> верно обратное. Исключением является его применения в декоративных целях,
+                    например,
+                    для
+                    увеличения области ссылки.
+                </p>
+            </div>
+
+            <div class="section-one__block-left">
+                <p class="section-one__text">
+                    Отступ внутри блока сверху или слева реализуется через <i>padding-top</i> и <i>padding-left</i>
+                    родителя.
+                </p>
+
+                <p class="section-one__text">
+                    Отступы, как правило, делают в направлении от предыдущего элемента к следующему. Так элемент не
+                    будет
+                    толкать сам себя.
+                </p>
+
+                <p class="section-one__text">
+                    Изначально элемент статичен, а его положение может меняться только под воздействием свойств других
+                    блоков или свойств родителя.
+                </p>
+            </div>
+
+            <img class="section-one__img--2" src="assets/image/figma images/image 1-2.jpg"
+                alt="На изображении блок с текстом и фотграфией кота, сверху от него padding" aria-hidden="true"
+                width="560" height="279">
+        </section>
+
+        <section id="two" class="section-two">
+            <h2 class="section__title">Отступ задается последнему возможному элементу в DOM-дереве</h2>
+
+            <p class="section-two__text">
+                Вообще, margin задают исключительно между соседними элементами DOM-дерева. Для примера, посмотрите на
+                этот список:
+            </p>
+
+            <img class="section-two__img" src="assets/image/figma images/image 2-1.jpg" alt="Изображение с кодом"
+                aria-hidden="true" width="1080" height="537">
+
+            <img class="section-two__img" src="assets/image/figma images/image 2-2.jpg" alt="Изображение с сайтом"
+                aria-hidden="true" width="600" height="450">
+
+            <p class="section-two__text">
+                Отступ делают за счёт соседних элементов, а не дочерних:
+            </p>
+
+            <figure class="section-two__figure">
+                <img class="section-two__img section-two__img--figure" src="assets/image/figma images/image 2-3.jpg"
+                    alt="Изображение с сайтом и кодом" aria-hidden="true" width="1080" height="427">
+
+                <p class="section-two__text section-two__text--figure"><strong>ВАЖНО:</strong> здесь <i>.list-item</i> —
+                    последний
+                    возможный элемент в котором мы задаём
+                    отступ, чтобы разделить списки.
+                </p>
+            </figure>
+
+            <p class="section-two__text">
+                Казалось бы, можно задать отступ параграфу <i>&lt;p&gt;</i>, либо обёртке <i>&lt;article&gt</i>; для
+                достижения той же
+                цели. Внешне останется все точно также, но так делать не рекомендуется.
+            </p>
+
+            <p class="section-two__text">
+                Предыдущий пример был достаточно простым, но бывает вложенность значительно больше.
+            </p>
+
+            <img class="section-two__img" src="assets/image/figma images/image 2-4.jpg" alt="Изображение с кодом"
+                aria-hidden="true" width="964" height="164">
+
+            <p class="section-two__text">
+                В случае с заголовком, если ему необходим отступ сверху, последним элементом будет <i>section</i>.
+                Именно для
+                него задается <i>padding-top</i>, а не <i>div</i> с классом <i>container</i>. Свойства <i>margin</i>,
+                которые стоят по умолчанию
+                необходимо обнулить.
+            </p>
+
+            <img class="section-two__img" src="assets/image/figma images/image 2-5.jpg"
+                alt="Изображение с сайтом и кодом" aria-hidden="true" width="1022" height="504">
+
+            <p class="section-two__text">
+                Это необходимо для более простого поиска отступов в будущем — для вас или того, кто будет верстать после
+                вас. Кроме того, возможны серьёзные проблемы при динамическом дублировании или выводе вёрстки с
+                нестандартной структурой отступов.
+            </p>
+        </section>
+
+        <section id="three" class="section-three">
+            <h2 class="section__title">Для последнего элемента группы отступ всегда обнуляется</h2>
+
+            <p class="section-three__text">
+                Для наглядности возьмём наш предыдущий пример с рецептами
+            </p>
+
+            <p class="section-three__text">
+                Между рецептами расстояние одинаковое. Можно заметить, что и до следующего блока расстояние такое же.
+            </p>
+
+            <img class="section-three__img" src="assets/image/figma images/image 3-1.jpg" alt="Изображение с рецептами"
+                aria-hidden="true" width="600" height="600">
+
+            <p class="section-three__text">
+                В соответствии со вторым принципом: последний <i>margin</i> обнуляется, а нижний отступ задаётся через
+                <i>padding</i>
+                для <i>section</i>. Я чаще всего задаю <i>padding</i> для секции с обоих сторон, если расстояние между
+                секциями 100px
+                задаю секциям <i>padding-top:50px</i> и <i>padding-bottom:50px</i>.
+            </p>
+
+            <img class="section-three__img" src="assets/image/figma images/image 3-2.jpg"
+                alt="Изображение с рецептами и margin" aria-hidden="true" width="600" height="607">
+
+            <img class="section-three__img" src="assets/image/figma images/image 3-3.jpg" alt="Изображение с кодом"
+                aria-hidden="true" width="1080" height="1058">
+
+            <p class="section-three__text">
+                Для большего понимания рассмотрим другой пример, который часто встречается на практике:
+            </p>
+
+            <img class="section-three__img" src="assets/image/figma images/image 3-4.jpg"
+                alt="Изображение с хэдером methed" aria-hidden="true" width="1080" height="88">
+            <img class="section-three__img" src="assets/image/figma images/image 3-5.jpg"
+                alt="Изображение с кодом для хэдера" aria-hidden="true" width="806" height="475">
+
+            <p class="section-three__text">
+                Здесь нас интересует отступ между пунктами меню и списком с кнопкой поиска. Отступы между пунктами меню
+                задаются так:
+            </p>
+
+            <img class="section-three__img" src="assets/image/figma images/image 3-6.jpg" alt="Изображение с кодом"
+                aria-hidden="true" width="317" height="110">
+
+            <p class="section-three__text">
+                Советую использовать псевдоклассы :last-child чаще других, например так:
+            </p>
+
+            <img class="section-three__img" src="assets/image/figma images/image 3-7.jpg" alt="Изображение с кодом"
+                aria-hidden="true" width="500" height="383">
+        </section>
+
+        <section class="conclusion">
+            <h2 class="conclusion__title">Подытожим:</h2>
+
+            <ul class="conclusion__list">
+                <li class="conclusion__list-item">— отступы задаём от предыдущего элемента к следующему</li>
+                <li class="conclusion__list-item">— используем только margin-right и margin-bottom</li>
+                <li class="conclusion__list-item">— внешние отступы задаются только между соседями</li>
+                <li class="conclusion__list-item">— внутренний отступ задаём самому верхнему элементу в дом дереве</li>
+                <li class="conclusion__list-item">— последнему элементу группы отступ всегда обнуляем</li>
+            </ul>
+
+            <p class="conclusion__text">
+                Конечно бывают исключения. Ведь макеты бывают различной сложности. Иногда базовые принципы приходится
+                нарушать в угоду дизайнерского решения или простоты вёрстки. Но для этого эти принципы необходимо хорошо
+                знать.
+            </p>
+        </section>
+    </article>
+</body>
+
+</html>
